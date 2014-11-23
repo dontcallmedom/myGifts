@@ -71,7 +71,7 @@ if ($method != "display" && $loginOK) {
       print "<script type=\"text/javascript\"> window.opener.location.href = window.opener.location.href </script>";
       print "<script type=\"text/javascript\"> window.close() </script>";
     } else
-		  Controler::goto($nextAction);
+		  Controler::gotoi($nextAction);
 	} else
 		Controler::gotoPrevious($error, $paramsError);
 }

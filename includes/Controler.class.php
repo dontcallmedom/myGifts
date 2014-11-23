@@ -178,11 +178,11 @@ class Controler {
 		return $G_CTRL_NEXT_ACTION[$handler];
 	}
 
-	function goto($handler) {
+	function gotoi($handler) {
 		global $logger;
 		$logger->logMessage($logger->LOG_INFO, "goto : $handler");
 		if (strpos($handler, "/") === false)
-			$uri = $_SERVER["SCRIPT_NAME"]."?handler=".urlencode($handler);
+			$uri = $_SERVER["SCRIPT_URL"]."?handler=".urlencode($handler);
 		else
 			$uri = $handler;
 		if (defined("DEBUG"))
@@ -205,7 +205,7 @@ class Controler {
 			else
 				header("Location: $nextUri");
 		} else
-			Controler :: goto(DEFAULT_HANDLER);
+			Controler :: gotoi(DEFAULT_HANDLER);
 	}
 
 	function displayTemplate($template, & $user, & $object, $nextAction = "", $error = "") {
