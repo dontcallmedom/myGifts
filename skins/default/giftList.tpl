@@ -25,15 +25,22 @@
 {if $object->ownerName != $user->name || $user->accessLevel >= 2}
 <table border="1" width="100%" cellspacing="1" cellpadding="3" class="tbl">
 <tr class="th"><td>{$strings.LANG_GIFT}</td><td align="center">{$strings.LANG_PRICE}</td><td align="center">{$strings.LANG_GIFT_PRIORITY}</td><td align="center">{$strings.LANG_GIFT_DETAILS|capitalize}</td>{if !$smarty.get.print}<td>{$strings.LANG_ACTIONS|capitalize}</td>{/if}</tr>
-{foreach name=list item=gift from=$object->gifts}
+{foreach name=list item=category from=$object->categories}
+    <tr valign="top"><td colspan="5"><b><i>{$category}</i></b></td></tr>
+{foreach name=catlist item=gift from=$object->gifts.$category}
 {if !$gift.ownerName || $object->ownerName != $user->name || $gift.ownerName == $user->name || $setup.seePropositions}
     <tr valign="top">
-     	<td class="col1" width="70%">{if $gift.ownerName && $gift.ownerName != $object->ownerName}<p class="bold">{$strings.LANG_PROPOSED_BY} {$gift.ownerName} :</p>{/if}<p>{if $gift.picture != ""}<img src="{$gift.picture|escape:"quotes"}" border="1" height="80" align="right">{/if}{$gift.name}<span class="small"><br />        
+     	<td class="col1" width="70%">{if $gift.ownerName && $gift.ownerName != $object->ownerName}<p class="bold">{$strings.LANG_PROPOSED_BY} {$gift.ownerName} :</p>{/if}<p>{if $gift.picture != ""}<img src="{$gift.picture|escape:"quotes"}" border="1" height="80" align="right">{/if}{$gift.name}
+     	{if $gift.new}<span class="newrecent">{$strings.LANG_NEW}</span>{/if}{if $gift.recent}<span class="newrecent">{$strings.LANG_RECENT}</span>{/if}
+     	<span class="small"><br />        
      	{if $gift.comment != ""}
 	     	{$gift.comment|nl2br}<br />
      	{/if}
      	{if $gift.url != ""}
      		{$strings.LANG_MORE_INFO} <a href="{$gift.url|escape:"quotes"}" target="_blank">{$gift.url|urlhost}</a>
+     	{/if}
+     	{if $gift.created != ""}
+     		<br /><i>{$strings.LANG_ADDED_ON} {$gift.created|date_format:$appParams.DATE_DISPLAY_LONG}</i>
      	{/if}
      	</span></p></td>
     <td class="col2" align="center" valign="middle">{if $gift.price > 0}{$setup.currency} {$gift.price}{else}&nbsp;{/if}</td>
@@ -74,6 +81,7 @@
 {/if}
 	</tr>
 {/if}
+{/foreach}
 {foreachelse}
     <tr><td colspan="5">{$strings.LANG_EMPTY_LIST}</td></tr>
 {/foreach}

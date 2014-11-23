@@ -1,5 +1,22 @@
 NEWS
 
+12/2/2005 - v2.70-alpha1 released
+THIS IS A DEVELOPMENT RELEASE, AND UPGRADES USING SQLITE ARE NOT SUPPORTED.
+UPGRADE AT YOUR OWN RISK, AND BACKUP YOUR DATABASE BEFORE.
+Fixes
+- new gifts use the default category
+- it is possible to delete categories
+- some strings were missing
+- a few sqlite bugs are fixed
+
+12/1/2005 - v2.70-dev released
+New
+- gift categories
+- new/updated gifts are marked as such
+Fixes
+- claiming a gift when not logged takes you to the login screen
+- first birthdays of the year are now displayed at the end of the previous year
+
 10/23/2005 - v2.63 released
 Fixes
 - an email validation problem could prevent user creation when the "mandatory email" option is checked
@@ -130,7 +147,7 @@ New
 - the ability to hide the claimer's name (see config/config.inc.php.sample)
 
 Bugs Fixed
-- bug #859877 (Nobody can see restricted access gifts) 
+- bug #859877 (Nobody can see restricted access gifts)
 
 12/8/2003 - v0.94 released
 New

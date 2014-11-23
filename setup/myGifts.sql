@@ -19,11 +19,20 @@ CREATE TABLE gft_gift (
   picture varchar(255) default NULL,
   priority tinyint(4) default NULL,
   price float(24,2) default NULL,
+  category int default '1' NOT NULL,
+  created datetime NULL,
+  updated datetime NULL,
   PRIMARY KEY  (id)
 );
 
 CREATE INDEX forUser ON gft_gift (forUser);
 CREATE INDEX owner ON gft_gift (owner);
+
+CREATE TABLE gft_category (
+  id INT NOT NULL,
+  category VARCHAR(50) NOT NULL,
+  PRIMARY KEY (id)
+);
 
 CREATE TABLE gft_user (
   id char(32) NOT NULL default '',
@@ -61,4 +70,5 @@ CREATE TABLE gft_group (
 
 CREATE TABLE gft_params (name VARCHAR(32) NOT NULL, type VARCHAR(16) NOT NULL, valueInt INT, valueStr VARCHAR(64), PRIMARY KEY (name));
 CREATE TABLE gft_alert (owner varchar(32) NOT NULL, list varchar(32) NOT NULL, type char(1) NOT NULL, lastSent INT, PRIMARY KEY  (owner,list));
-insert into gft_params (name, type, valueInt) values("dbVersionNum", "int", 250);
+
+insert into gft_params (name, type, valueInt) values("dbVersionNum", "int", 270);

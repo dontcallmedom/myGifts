@@ -12,7 +12,7 @@ class UserList {
 			if ($user->accessLevel == 3) {
 				$sqlQuery = "select distinct u.* from gft_user u ";
 				if ($type == "birthday") {
-					$sqlQuery .= "where u.accessLevel >= 2 && DAYOFYEAR(u.birthDate) >= DAYOFYEAR(now()) order by DAYOFYEAR(u.birthDate) LIMIT 0,5";
+					$sqlQuery .= "where u.accessLevel >= 2 and DAYOFYEAR(u.birthDate) >= DAYOFYEAR(now()) order by DAYOFYEAR(u.birthDate) LIMIT 0,5";
 				} else if ($type == "haslist")
           $sqlQuery .= "where u.accessLevel >= 2";
         else
@@ -28,6 +28,12 @@ class UserList {
 					$sqlQuery .= "order by u.name";
 			}
 			$this->users = $database->fetch($sqlQuery);
+      if ($type == "birthday" && count($this->users) < 5) {
+        $sqlQuery = str_replace("and DAYOFYEAR(u.birthDate) >= DAYOFYEAR(now())", "", $sqlQuery);
+        $sqlQuery = str_replace("LIMIT 0,5", "LIMIT 0,".(5-count($this->users)), $sqlQuery);
+        $addList = $database->fetch($sqlQuery);
+        $this->users = array_merge($this->users, $addList);
+      }
 		} else
 			$this->users = array();
 	}

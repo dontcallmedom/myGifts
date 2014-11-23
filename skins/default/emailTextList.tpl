@@ -1,10 +1,14 @@
 {$strings.LANG_EMAIL_TEXT}
 
-{foreach name=list item=gift from=$object->gifts}
+{foreach name=list item=category from=$object->categories}
+{$category|upper}
+{foreach name=catlist item=gift from=$object->gifts.$category}
 - {$gift.name}
 {if $gift.comment != ""}
   {$gift.comment}
 {/if}
+
+{/foreach}
 
 {/foreach}
 

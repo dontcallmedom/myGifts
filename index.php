@@ -3,8 +3,8 @@
 require("includes/includes.inc.php");
 
 if (!defined("DBSERVER"))
-  include("setup.php");
-elseif (Setup::getParam("dbVersionNum") === false || MVC_APP_VERSION_NUM > Setup::getParam("dbVersionNum"))
+  header("Location: setup.php");
+elseif (Setup::getParam("dbVersionNum") === false || MVC_DB_VERSION_NUM > Setup::getParam("dbVersionNum"))
 	include("upgrade.php");
 
 $user = User::getCurrentUser();

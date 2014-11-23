@@ -14,18 +14,29 @@ class GiftList {
 			$listId = $user->id;
 			
 		$this->listId = $listId;
-		$sqlQuery = 	"SELECT g.*, u.id as claimerId, u.name as claimerName, o.name as ownerName  FROM gft_gift g
+		$sqlQuery = 	"SELECT g.*, ".$database->timestamp("g.created")." as ts_created, ".$database->timestamp("g.updated")." as ts_updated, u.id as claimerId, u.name as claimerName, o.name as ownerName, cat.category as category_name  FROM gft_category cat, gft_gift g
 						 LEFT OUTER JOIN gft_user o ON g.owner=o.id
 						 LEFT OUTER JOIN gft_claim c ON c.giftId=g.id 
 						 LEFT OUTER JOIN gft_user u ON c.userId=u.id ";
-		$whereClause =	"WHERE forUser ='".addslashes($listId)."' ";
+		$whereClause =	"WHERE forUser = '".addslashes($listId)."' AND g.category = cat.id ";
 		if ($listId != $user->id) {
 			$sqlQuery .= "LEFT OUTER JOIN gft_visibility v ON (v.giftId=g.id AND v.userId = '".addslashes($user->id)."') ";
 			$whereClause .= "AND (restricted = 0 OR v.userId is not null) ";
 		}
-		$whereClause .= "ORDER BY offered, offeredOn, g.name";
+		$whereClause .= "ORDER BY offered, offeredOn, cat.category, g.name";
 
-		$this->gifts = $database->fetch($sqlQuery.$whereClause);
+		$tmpGifts = $database->fetch($sqlQuery.$whereClause);
+    $curTime = time();
+    foreach ($tmpGifts as $tmpGift) {
+      if (!is_array($this->categories) || !in_array($tmpGift["category_name"], $this->categories))
+        $this->categories[] = $tmpGift["category_name"];
+
+      if ($curTime-$tmpGift["ts_created"] < 4*24*3600)
+        $tmpGift["new"] = true;
+      else if ($curTime-$tmpGift["ts_updated"] < 4*24*3600)
+        $tmpGift["recent"] = true;
+      $this->gifts[$tmpGift["category_name"]][] = $tmpGift;
+    }    
 		$database->loadObject($this, "select name as ownerName from gft_user where id='".addslashes($listId)."'");
 	}
 

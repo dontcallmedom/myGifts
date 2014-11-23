@@ -102,7 +102,7 @@ class Controler {
       $object->$varName = Tools::getHttpParam($varName);
     }
   }
-  
+
 	function getParamNames($handler, $class) {
 		global $G_CTRL_PARAMS;
 
@@ -137,7 +137,7 @@ class Controler {
     else
       return call_user_func_array($G_CTRL_PARAM_FMT[$paramName], array($paramValue));
   }
-  
+
 	function callAction(& $object, $handler) {
 		global $logger;
 
@@ -158,14 +158,15 @@ class Controler {
 			return false;
 
 		$params = Controler :: getParamValues($handler, get_class($object));
-		//print_r($params);
+
 		return call_user_func_array(array ($object, "getParams"), $params);
 	}
 
 	function needsLogin($handler) {
 		global $G_CTRL_NEEDS_LOGIN;
+
 		if (is_array($G_CTRL_NEEDS_LOGIN[$handler]))
-			return array_reduce($G_CTRL_NEEDS_LOGIN[$handler], "min");
+			return min($G_CTRL_NEEDS_LOGIN[$handler]);
 		else
 			return $G_CTRL_NEEDS_LOGIN[$handler];
 	}

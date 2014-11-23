@@ -33,10 +33,18 @@ if ($dbvers < 250) {
   $ok &= $database->query("CREATE TABLE gft_alert (owner varchar(32) NOT NULL, list varchar(32) NOT NULL, type char(1) NOT NULL, lastSent INT, PRIMARY KEY  (owner,list))");
   $ok &= Setup::updateParam("dbVersionNum", 250, "int");
 }
+if ($dbvers < 270) {
+  print "<h2>Updating structure to version 2.70</h2>";
+  $ok &= $database->query("ALTER TABLE gft_gift ADD category INT DEFAULT '1' NOT NULL, ADD created datetime NULL, ADD updated datetime NULL");
+  $ok &= $database->query("CREATE TABLE gft_category (id INT NOT NULL, category VARCHAR(50) NOT NULL, PRIMARY KEY (id))");
+  Category::initCategories();
+  $ok &= Setup::updateParam("dbVersionNum", 270, "int");
+}
 
-if (Setup::getParam("dbVersionNum") == 250 && $ok)
+if (Setup::getParam("dbVersionNum") == 270 && $ok)
 	print "<p><b>success</b></p>";
-
+else
+  print "<p><b>failure</b></p>";
 ?>
 <script type="text/javascript">
 function redirect() {

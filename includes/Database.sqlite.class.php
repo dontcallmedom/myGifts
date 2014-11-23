@@ -1,18 +1,18 @@
 <?php
 
 class Database {
-	
+
 	var $connection;
 
 	var $server;
 	var $user;
 	var $password;
 	var $database;
-	
+
 	function Database($server, $user, $password, $database)
 	{
     $this->connection = null;
-    
+
 		$this->server = $server;
 		$this->user = $user;
 		$this->password = $password;
@@ -22,7 +22,7 @@ class Database {
 	function connect()
 	{
 		global $logger;
-		
+
 		if (!$this->connection) {
 			$this->connection = sqlite_open('./data/myGifts.db');
 			if (sqlite_last_error($this->connection)) {
@@ -34,7 +34,7 @@ class Database {
     sqlite_create_function($this->connection, 'DAYOFYEAR', 'sqlite_dayofyear', 1);
 		return true;
 	}
-		
+
   function lock($tableName) {
     $this->query("BEGIN TRANSACTION");
   }
@@ -42,7 +42,11 @@ class Database {
   function unlock($tableName) {
     $this->query("COMMIT TRANSACTION");
   }
-  
+
+  function timestamp($col) {
+    return "strftime('%s', $col)";
+  }
+
   // not multiuser safe ! table must be locked/unlocked
   function getNextId($tableName) {
     $maxArr = $this->fetchItem("select max(id) as maxId from $tableName");
@@ -64,14 +68,14 @@ class Database {
 			}
 	 		return $object;
 		}
-        
-		return null; 
+
+		return null;
 	}
 
   function stripTableAlias($resultArr) {
       if (!is_array($resultArr))
         return array();
-        
+
       $newArr = array();
       foreach ($resultArr as $key => $value) {
         if (strpos($key, ".") > 0)
@@ -80,7 +84,7 @@ class Database {
       }
       return $newArr;
   }
-  
+
 	function &fetch($sqlQuery)
 	{
 		$result = $this->query($sqlQuery);
@@ -103,11 +107,11 @@ class Database {
 		} else
 			return "ERROR_DATABASE";
 	}
-	
+
 	function query($sqlQuery)
 	{
 		global $logger;
-		
+
 		if (!$this->connect())
 			return false;
 
@@ -120,7 +124,37 @@ class Database {
 			return false;
 		}
 	}
-	
+
+  function saveTable($tableName)
+  {
+    if (!$this->connect())
+      return false;
+
+    $logger->logMessage($logger->LOG_INFO, "Saving table : $tableName");
+    sqlite_query($this->connection, "DROP TABLE ${tableName}_SAVE");
+    $result = sqlite_query($this->connection, "ALTER TABLE ${tableName} RENAME ${tableName}_SAVE");
+    if ($result)
+      return true;
+    else {
+      $logger->logMessage($logger->LOG_ERROR, "Error saving table $tableName : ".sqlite_error_string(sqlite_last_error($this->connection)));
+      return false;
+    }
+  }
+
+  function restoreTable($tableName)
+  {
+    if (!$this->connect())
+      return false;
+
+    $logger->logMessage($logger->LOG_INFO, "Restoring table : $tableName");
+    $result = sqlite_query($this->connection, "INSERT INTO ${tableName} SELECT * FROM ${tableName}_SAVE");
+    if ($result)
+      return true;
+    else {
+      $logger->logMessage($logger->LOG_ERROR, "Error restoring table $tableName : ".sqlite_error_string(sqlite_last_error($this->connection)));
+      return false;
+    }
+  }
 }
 
 function sqlite_now() {

@@ -6,7 +6,7 @@
 <h3>{$strings.LANG_SETUP_DATABASE}</h3>
 <p>{$strings.LANG_SETUP_DATABASE_TEXT}</p>
 <table border="0">
-{if version_compare(phpversion(), "5.0.0", ">=")}
+{if function_exists('sqlite_open')}
 <tr><td align="right">{$strings.LANG_SETUP_DBTYPE} : </td><td><select name="dbtype"><option value="mysql">mySQL</option><option value="sqlite">SQLite</option></select></td></tr>
 <tr><td colspan="2" align="center"><i>{$strings.LANG_SETUP_DBTYPE_HELP}</i></td></tr>
 {else}

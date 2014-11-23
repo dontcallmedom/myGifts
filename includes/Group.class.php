@@ -19,7 +19,10 @@ class Group {
 
 	function saveGroup($name)
 	{
-		global $database;
+    global $database, $user;
+
+    if ($user->accessLevel < 3)
+      return "ERROR_INSUFFICIENTPRIVILEGES";
 
 		$name = strip_tags($name);
 
@@ -70,12 +73,8 @@ class Group {
 
 }
 
-//Controler::registerHandler("adminGroups", "display", "Group", null, 3);
-Controler::registerHandler("editGroup", "display", "Group", array("id"), 3);
+Controler::registerHandler("adminEditGroup", "display", "Group", array("id"), 3);
 Controler::registerHandler("saveGroup", "action", "Group", array("id", "name"), 3);
 Controler::registerHandler("deleteGroup", "action", "Group", array("id"), 3);
-
-//Controler::registerHandler("addUser", "action", "Group", array("id", "userId"), 2);
-//Controler::registerHandler("removeUser", "action", "Group", array("id", "userId"), 2);
 
 ?>

@@ -11,7 +11,7 @@ class VisibilityList {
 		
 		if (!empty($giftId)) {
       	$this->giftId = (int) $giftId;
-      	$sqlQuery  = "select u.id, u.name, (v.giftId is not null) as isVisible ";
+      	$sqlQuery  = "select distinct u.id, u.name, (v.giftId is not null) as isVisible ";
       	$sqlQuery .= "from gft_user u LEFT OUTER JOIN gft_visibility v ON (u.id = v.userId AND v.giftId = ".$this->giftId."), ";
       	$sqlQuery .= "gft_users_group ug, gft_users_group me ";
       	$sqlQuery .= "where ug.userId = u.id and ug.groupId = me.groupId and me.userId = '".addslashes($user->id)."'";

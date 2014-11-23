@@ -61,6 +61,7 @@ if (!defined("LANG") || LANG == "default") {
 			if (empty ($text)) {
 				$user = null;
 				$database->query("INSERT INTO gft_group (id, name) VALUES (1, '".$strings["LANG_DEFAULT_GROUP"]."')");
+        Category::initCategories();
 			}
 		}
 

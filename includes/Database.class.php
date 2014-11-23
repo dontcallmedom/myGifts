@@ -46,6 +46,10 @@ class Database {
     $this->query("UNLOCK TABLES");
   }
   
+  function timestamp($col) {
+    return "UNIX_TIMESTAMP($col)";
+  }
+
   // not multiuser safe ! table must be locked/unlocked
   function getNextId($tableName) {
     $maxArr = $this->fetchItem("select max(id) as maxId from $tableName");

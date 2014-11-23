@@ -12,6 +12,7 @@ h3 { font-size: 13px;  font-family: Futura Hv BT, Helvetica, sans-serif; font-we
 .text {  font-family: Arial, Helvetica, sans-serif; font-size: 12px}
 .textarea {  font-family: Arial, Helvetica, sans-serif; font-size: 12px}
 .ital {  font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-style: italic}
+.newrecent {  font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-style: italic; color: red; font-variant: small-caps; vertical-align: sup }
 b {  font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold }
 .bold {  font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-style: italic; font-weight: bold }
 .boldital {  font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold }

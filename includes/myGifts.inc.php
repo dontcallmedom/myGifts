@@ -8,6 +8,8 @@ require_once("includes/Group.class.php");
 require_once("includes/GroupList.class.php");
 require_once("includes/Gift.class.php");
 require_once("includes/GiftList.class.php");
+require_once("includes/Category.class.php");
+require_once("includes/CategoryList.class.php");
 require_once("includes/VisibilityList.class.php");
 require_once("includes/Alert.class.php");
 

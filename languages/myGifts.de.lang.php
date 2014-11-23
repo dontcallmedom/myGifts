@@ -6,7 +6,7 @@ $strings = array(
 
 	"LANG_YES" => "Ja",
 	"LANG_NO" => "Nein",
-	
+
 	"LANG_NAME" => "Name",
   "LANG_REALNAME" => "Vollständiger Name",
 	"LANG_EMAIL" => "Email",
@@ -36,7 +36,8 @@ $strings = array(
 	"LANG_GIFT_PRICE" => "Preis",
 	"LANG_CURRENCY" => "EUR",
   "LANG_GIFT_DETAILS" => "Details",
-	
+  "LANG_ADDED_ON" => "** Added",
+
 	"LANG_GIFT_OFFERED" => "Mir wurde dieses Geschenck angeboten",
 	"LANG_GIFT_OFFERED_ON" => "zu diesem Anlass",
 
@@ -72,7 +73,7 @@ $strings = array(
 
 	"LANG_EMAIL_SUBJECT" => "Meine Wunschliste",
 	"LANG_EMAIL_TITLE" => "Ich habe nun eine Wunschliste auf dem Internet",
-	"LANG_EMAIL_LINK" => "Um die Liste einzusehen bitte diesem Link folgen.", 
+	"LANG_EMAIL_LINK" => "Um die Liste einzusehen bitte diesem Link folgen.",
 
 	"LANG_ADD" => "hinzufügen",
 	"LANG_EDIT" => "bearbeiten",
@@ -83,9 +84,12 @@ $strings = array(
 	"LANG_NEXT" => "nächstes",
 	"LANG_PREVIOUS" => "vorheriges",
 
+  "LANG_NEW" => "neu",
+  "LANG_RECENT" => "** updated",
+
   "LANG_MONITOR_TITLE" => "Diese Liste überwachen",
   "LANG_MONITOR_TEXT" => "Wenn Geschenke zur liste hinzugefügt werden, möchte ich ein Email erhalten",
-  
+
 	"LANG_SETUP" => "Setup",
 	"LANG_SETUP_DATABASE" => "Dataenbank setup",
 	"LANG_SETUP_DATABASE_TEXT" => "Bitte konfigurieren Sie die Datenbank:",
@@ -114,6 +118,12 @@ $strings = array(
 	"LANG_ADMIN_CONFIRM_USER_DELETE" => "Wollen Sie den Benutzer  %s wirklich löschen?",
 	"LANG_ADMIN_CONFIRM_GROUP_DELETE" => "Wollen Sie die Gruppe  %s wirklich löschen?",
 	"LANG_ADMIN_CHANGE_PASSWORD" => "Ändere %s's Passwort",
+  "LANG_ADMIN_CATEGORIES_TITLE" => "** Categories", // new
+  "LANG_ADMIN_CATEGORIES_TEXT" => "** Select a category, or click on 'add' to create a new one", // new
+  "LANG_ADMIN_CATEGORIES_EDIT" => "** Edit category",
+  "LANG_ADMIN_CATEGORIES_CREATE" => "** New category",
+  "LANG_DEFAULT_CATEGORY" => "** Other", // new
+  "LANG_CATEGORIES" => "** DVD,Music,House,Clothes,Toys,Sport,Computer,Jewelry", // new
 
 	"LANG_ADMIN_SETUP_TITLE" => "Darstellungsoptionen",
   "LANG_ADMIN_SETUP_SELFREGISTRATION" => "Selbst-Registrierung",
@@ -147,7 +157,7 @@ $strings = array(
 
   "LANG_ALERT_U_SUBJECT" => "Wunschliste wurde Bearbeitet",
   "LANG_ALERT_U_TEXT" => "Ein Geschenk ist zu %name%'s Wunschliste hinzu gefügt worden",
-   
+
 	"LANG_GROUPS" => "Gruppen",
 	"LANG_GROUPS_ACCESS" => "Gehört zu",
 	"LANG_GROUPS_NOACCESS" => "Gehört nicht zu",
@@ -156,7 +166,7 @@ $strings = array(
   "LANG_CREDITS" => "Credits",
   "LANG_CREDITS_TEXT" => "<p>myGifts wurde von Jean-François Bustarret geschrieben</p><p>Falls Ihnen diese Software sehr gut gefällt, und Sie sich dafür bedanken möchten, können Sie meinen Wunschzettel bei <a href='http://www.amazon.com/o/registry/1WK7ZPE0ACQEG' class='under'>Amazon US</a> oder <a href='http://www.amazon.fr/exec/obidos/registry/PVEJE4LSSC9R' class='under'>Amazon Frankreich</a>einsehen.</p><p>myGifts basiert auf:</p>",
   "LANG_CREDITS_ADDITIONAL_TEXT" => "**<p>German translation by Andreas Manser</p>",
-  
+
 	"ERROR" => "Fehler",
 	"ERROR_DATABASE" => "Datenbank Fehler.",
   "ERROR_DATABASE_SQLITE" => "Kein Zugriff auf die Datenbank möglich. Bitte stellen Sie sicher, dass die Zugriffsberechtigung des Verzeichnisses 'data' Schreiben und Lesen von jedem Benutzer erlauben. (chmod 777 data)",
@@ -175,7 +185,8 @@ $strings = array(
 	);
 
 $appParams["DATE_ORDER"] = "DM";
-$appParams["DATE_DISPLAY"] = "%e %B"; 
+$appParams["DATE_DISPLAY"] = "%e %B";
+$appParams["DATE_DISPLAY_LONG"] = "%e %B %Y";
 $appParams["LOCALE"] = "de_DE";
 
 ?>

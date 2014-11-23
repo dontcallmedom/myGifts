@@ -5,12 +5,12 @@
 if (defined("DEBUG")) {
 	ob_start();
 }
-	
+
 define("MVC_APP_NAME", "myGifts");
 define("MVC_APP_CODE", "gft");
 define("MVC_DEFAULT_HANDLER", "myList");
-define("MVC_APP_VERSION", "2.63");
-define("MVC_APP_VERSION_NUM", "250");
+define("MVC_APP_VERSION", "2.70-alpha1");
+define("MVC_DB_VERSION_NUM", "270");
 if (!defined("LANG"))
 	define("LANG", "default");
 if (!defined("SKIN"))
@@ -21,7 +21,7 @@ if (!defined("SKIN"))
 
 if (!@is_array($setup))
 	$setup = array();
-	
+
 require_once("includes/Tools.class.php");
 require_once("includes/Logger.class.php");
 $logger =& new Logger();
@@ -42,6 +42,6 @@ require_once("includes/".MVC_APP_NAME.".inc.php");
 
 $appParams["version"] = MVC_APP_VERSION;
 if (array_key_exists("LOCALE", $appParams))
-	setlocale(LC_ALL, $appParams["LOCALE"].".ISO8859-1"); 
+	setlocale(LC_ALL, $appParams["LOCALE"].".ISO8859-1");
 
 ?>

@@ -26,9 +26,10 @@ $strings = array(
 
   "LANG_REGISTRY" => "Liste de mariage/naissance",
   "LANG_GIFTLIST" => "Liste de cadeaux (Noël/anniversaire/...)",
-  
+
 	"LANG_GIFT" => "Cadeau",
-	"LANG_GIFT_COMMENT" => "Commentaires",
+  "LANG_GIFT_COMMENT" => "Commentaires",
+  "LANG_CATEGORY" => "Catégorie",
 	"LANG_GIFT_URL" => "URL web",
 	"LANG_GIFT_PICTURE" => "URL Photo",
 	"LANG_GIFT_PRIORITY" => "Priorité",
@@ -36,7 +37,8 @@ $strings = array(
 	"LANG_GIFT_PRICE" => "Prix",
 	"LANG_CURRENCY" => "EUR",
   "LANG_GIFT_DETAILS" => "Détails",
-	
+  "LANG_ADDED_ON" => "Ajouté le",
+
 	"LANG_GIFT_RESTRICTED" => "accès restreint",
 	"LANG_GIFT_ACCESS" => "Personnes ayant accès à ce cadeau",
 	"LANG_GIFT_NOACCESS" => "Personnes n'ayant pas accès à ce cadeau",
@@ -63,7 +65,7 @@ $strings = array(
   "LANG_ADD_GIFT" => "ajouter un cadeau",
   "LANG_EDIT_GIFT" => "modifier un cadeau",
   "LANG_PROPOSED_BY" => "Proposé par ",
-	
+
   "LANG_SELECT_LIST" => "Selectionnez une liste de cadeaux",
 	"LANG_NEXT_BIRTHDAYS" => "Prochains anniversaires",
 
@@ -83,9 +85,12 @@ $strings = array(
 	"LANG_NEXT" => "suivant",
 	"LANG_PREVIOUS" => "précédent",
 
+  "LANG_NEW" => "nouveau",
+  "LANG_RECENT" => "modifié",
+
   "LANG_MONITOR_TITLE" => "Surveiller cette liste",
   "LANG_MONITOR_TEXT" => "Je veux être alerté par mail quand des cadeaux sont ajoutés à cette liste",
-  
+
 	"LANG_SETUP" => "Installation",
 	"LANG_SETUP_DATABASE" => "Configuration de la base de données",
   "LANG_SETUP_DATABASE_TEXT" => "Merci de paramétrer votre base de données :",
@@ -116,7 +121,13 @@ $strings = array(
 	"LANG_ADMIN_CONFIRM_USER_DELETE" => "Etes-vous sur de vouloir supprimer l'utilisateur %s ?",
 	"LANG_ADMIN_CONFIRM_GROUP_DELETE" => "Etes-vous sur de vouloir supprimer le groupe %s ?",
 	"LANG_ADMIN_CHANGE_PASSWORD" => "Changement du mot de passe de %s",
-	
+  "LANG_ADMIN_CATEGORIES_TITLE" => "Catégories", // new
+  "LANG_ADMIN_CATEGORIES_TEXT" => "Sélectionnez la catégorie que vous voulez modifier, ou cliquez sur ajouter pour en ajouter un nouvelle", // new
+  "LANG_ADMIN_CATEGORIES_EDIT" => "Edition d'une catégorie",
+  "LANG_ADMIN_CATEGORIES_CREATE" => "Nouvelle catégorie",
+  "LANG_DEFAULT_CATEGORY" => "Divers", // new
+  "LANG_CATEGORIES" => "DVD,Musique,Maison,Habits,Jouets,Sport,Informatique,Bijoux/Accessoires", // new
+
   "LANG_ADMIN_SETUP_TITLE" => "Options",
   "LANG_ADMIN_SETUP_SELFREGISTRATION" => "Auto-enregistrement",
   "LANG_ADMIN_SETUP_SELFREGISTRATION_NO" => "Seul l'administrateur peut créer de nouveaux comptes",
@@ -146,10 +157,10 @@ $strings = array(
   "LANG_ACCESS_LOGIN" => "connexion (peut réserver des cadeaux, mais n'a pas de liste)",
   "LANG_ACCESS_LIST" => "normal (a une liste)",
 	"LANG_ACCESS_ADMIN" => "administrateur",
-	
+
   "LANG_ALERT_U_SUBJECT" => "Mise à jour d'une liste de cadeaux",
   "LANG_ALERT_U_TEXT" => "Un cadeau a été ajouté à la liste de %name%.",
-   
+
 	"LANG_GROUPS" => "Groupes",
 	"LANG_GROUPS_ACCESS" => "Appartient aux groupes",
 	"LANG_GROUPS_NOACCESS" => "N'appartient pas aux groupes",
@@ -178,5 +189,6 @@ $strings = array(
 
 $appParams["DATE_ORDER"] = "DM";
 $appParams["DATE_DISPLAY"] = "%e %B";
+$appParams["DATE_DISPLAY_LONG"] = "%e %B %Y";
 $appParams["LOCALE"] = "fr_FR";
 ?>

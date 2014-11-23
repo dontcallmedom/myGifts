@@ -6,7 +6,7 @@ $strings = array(
 
 	"LANG_YES" => "Yes",
 	"LANG_NO" => "No",
-	
+
   "LANG_NAME" => "Name",
   "LANG_REALNAME" => "Full name",
 	"LANG_EMAIL" => "Email",
@@ -29,6 +29,7 @@ $strings = array(
 
 	"LANG_GIFT" => "Gift",
 	"LANG_GIFT_COMMENT" => "Comment",
+  "LANG_CATEGORY" => "Category",
 	"LANG_GIFT_URL" => "URL",
 	"LANG_GIFT_PICTURE" => "Picture URL",
 	"LANG_GIFT_PRIORITY" => "Priority",
@@ -36,7 +37,8 @@ $strings = array(
 	"LANG_GIFT_PRICE" => "Price",
 	"LANG_CURRENCY" => "$",
   "LANG_GIFT_DETAILS" => "Details",
-	
+  "LANG_ADDED_ON" => "Added",
+
 	"LANG_GIFT_OFFERED" => "I have been offered this gift",
 	"LANG_GIFT_OFFERED_ON" => "on this occasion",
 
@@ -83,9 +85,12 @@ $strings = array(
 	"LANG_NEXT" => "next",
 	"LANG_PREVIOUS" => "previous",
 
+  "LANG_NEW" => "new",
+  "LANG_RECENT" => "updated",
+
   "LANG_MONITOR_TITLE" => "Monitor this list",
   "LANG_MONITOR_TEXT" => "I want to receive an email when gifts are added to this list",
-  
+
 	"LANG_SETUP" => "Setup",
 	"LANG_SETUP_DATABASE" => "Database setup",
   "LANG_SETUP_DATABASE_TEXT" => "Configure your database :",
@@ -111,11 +116,17 @@ $strings = array(
 	"LANG_ADMIN_USERS_EDIT" => "Edit user",
 	"LANG_ADMIN_GROUPS_TITLE" => "Group administration",
 	"LANG_ADMIN_GROUPS_TEXT" => "Select a group, or click on 'add' to create a new group.",
-  "LANG_ADMIN_GROUPS_EDIT" => "**Edit group",
-  "LANG_ADMIN_GROUPS_CREATE" => "**New group",
+  "LANG_ADMIN_GROUPS_EDIT" => "Edit group",
+  "LANG_ADMIN_GROUPS_CREATE" => "New group",
 	"LANG_ADMIN_CONFIRM_USER_DELETE" => "Do you really want to delete user %s ?",
 	"LANG_ADMIN_CONFIRM_GROUP_DELETE" => "Do you really want to delete group %s ?",
 	"LANG_ADMIN_CHANGE_PASSWORD" => "Changing %s's password",
+  "LANG_ADMIN_CATEGORIES_TITLE" => "Categories", // new
+  "LANG_ADMIN_CATEGORIES_TEXT" => "Select a category, or click on 'add' to create a new one", // new
+  "LANG_ADMIN_CATEGORIES_EDIT" => "Edit category",
+  "LANG_ADMIN_CATEGORIES_CREATE" => "New category",
+  "LANG_DEFAULT_CATEGORY" => "Other", // new
+  "LANG_CATEGORIES" => "DVD,Music,House,Clothes,Toys,Sport,Computer,Jewelry", // new
 
 	"LANG_ADMIN_SETUP_TITLE" => "Setup",
   "LANG_ADMIN_SETUP_SELFREGISTRATION" => "Self registration",
@@ -140,7 +151,7 @@ $strings = array(
   "LANG_ADMIN_SETUP_EMAILS" => "Emails",
   "LANG_ADMIN_SETUP_EMAIL_MANDATORY" => "Users must have an email address",
   "LANG_ADMIN_SETUP_EMAIL_EXTCHECK" => "Emails addresses are validated (requires an Internet address)",
-  
+
 	"LANG_ACCESS_LEVEL" => "Access level",
 	"LANG_ACCESS_NOACCESS" => "no access",
 	"LANG_ACCESS_LOGIN" => "login (can claim gifts, but has no wish list)",
@@ -149,7 +160,7 @@ $strings = array(
 
   "LANG_ALERT_U_SUBJECT" => "Gift list update",
   "LANG_ALERT_U_TEXT" => "A gift has just been added to %name%'s wish list.",
-   
+
 	"LANG_GROUPS" => "Groups",
 	"LANG_GROUPS_ACCESS" => "Belong to",
 	"LANG_GROUPS_NOACCESS" => "Does not belong to",
@@ -158,7 +169,7 @@ $strings = array(
   "LANG_CREDITS" => "Credits",
   "LANG_CREDITS_TEXT" => "<p>myGifts is written by Jean-François Bustarret</p><p>If you really like this software, and want to thank me for it, you can check my own wish list on <a href='http://www.amazon.com/o/registry/1WK7ZPE0ACQEG' class='under'>Amazon US</a> or <a href='http://www.amazon.fr/exec/obidos/registry/PVEJE4LSSC9R' class='under'>Amazon France</a></p><p>myGifts is based on :</p>",
   "LANG_CREDITS_ADDITIONAL_TEXT" => "<p>German translation by Andreas Manser</p>",
-  
+
 	"ERROR" => "Error",
 	"ERROR_DATABASE" => "Database error.",
   "ERROR_DATABASE_SQLITE" => "No access to database. Check that the data directory is readable and writeable by everibody (chmod 777 data)",
@@ -178,6 +189,7 @@ $strings = array(
 
 $appParams["DATE_ORDER"] = "MD";
 $appParams["DATE_DISPLAY"] = "%B %e";
+$appParams["DATE_DISPLAY_LONG"] = "%B %e %Y";
 $appParams["LOCALE"] = "en_US";
 
 ?>
