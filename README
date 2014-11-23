@@ -1,0 +1,70 @@
+INTRODUCTION
+	myGifts enables you, your family, your friends to share your gift wish-lists.
+	Every user can:
+		- add gifts to his list or to other people's list,
+		- decide who can(cannot) see this or that gift,
+		- view other people's lists,
+		- claim gifts on other lists.
+	Users belong to groups. One can only see lists from people of the same groups.
+
+HOME PAGE
+	http://mygifts.sourceforge.net
+	
+PREREQUISITES
+	PHP >= 4.2.3
+	mySQL 3 or 4.x (optional with PHP5)
+
+INSTALL (SIMPLE)
+	- untar myGifts.x.x.tar.gz in your web server's document root.
+		tar xvfpz myGifts.x.x.tar.gz
+	- check that your web server
+	- create a mysql database (unless you already have one) or use sqlite if not (PHP5 only)
+	- launch http://votresiteweb/myGifts/setup.php in your browser
+	- select a language
+	- configure your database access
+	- create a "admin" user
+
+Note : if you transfer the myGifts files to your web server trough FTP, you will
+have to check that your web server can write to the myGifts/config directory
+("group" and "other" write permissions are needed).
+If that is not the case, the installer will advise you to create the config file
+by yourself.
+
+ADDITIONNAL INSTALL (POWER USERS)
+	- change the rights of the file : config/config.inc.php
+		cd myGifts/config
+		mv config.inc.php config.save.php
+		cp config.save.php config.inc.php
+
+UPGRADE
+	If you upgrade from version 0.9, execute the sql script setup/upgrade-0.9.sql
+	If you upgrade from version 1.22, execute the sql script setup/upgrade-1.22.sql
+	If you upgrade from another version, the database upgrade is automatically performed.
+	You must remove the $setup = array( ... ); part from config/config.inc.php, as the
+	corresponding setup is now managed through the admin web pages.
+	
+SECURITY
+	By default, the cache and config directories have 777 permissions. If you think this is bad security,
+	You should do :
+		chown -R `whoami` config
+		chmod 755 config
+		chmod 644 config/*
+
+	myGifts is meant to run with safe_mode=On, register_globals=Off configured in your php.ini
+	(if you don't know what this is, don't be afraid, it will work on your configuration).
+
+THANKS
+	Many thanks to the Smarty developers. Great job !
+	http://smarty.php.net
+
+SUPPORT MYGIFTS DEVELOPMENT
+	If you find myGifts useful and want to thank the author for it or keep the author motivated,
+	here is the author's wish list :
+	http://www.amazon.com/o/registry/1WK7ZPE0ACQEG
+	
+	If you need features, drop me an email at jfbubus@users.sourceforge.net.
+
+COPYRIGHT
+    Copyright (c) 2003, 2004, 2005 Jean-Francois Bustarret. All rights reserved.
+    This software is released under the GNU General Public License.
+    Please read http://www.gnu.org/licenses/licenses.html#GPL.

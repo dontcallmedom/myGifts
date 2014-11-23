@@ -1,0 +1,180 @@
+NEWS
+
+10/23/2005 - v2.63 released
+Fixes
+- an email validation problem could prevent user creation when the "mandatory email" option is checked
+
+10/20/2005 - v2.62 released
+Fixes
+- fixes a JS error on IE when clicking on the "monitor this list" checkbox
+
+9/17/2005 - v2.61 released
+Fixes
+- updated german translation
+- fix a XSS in gifts hyperlinks & images
+- properly escapes quotes in the gift edit form
+- newlines in gift comments are replaced with <br> in gift list
+- birthday is now displayed when creating a new user
+
+9/11/2005 - v2.60 released
+Fixes
+- email verification did not properly work with sub-domains
+- changed setup.php call in index.php to ensure compatibility with pre-2.60 configurations
+
+9/2/2005 - v2.60-rc1 released
+Fixes
+- setup did not work with 2.60-alpha1
+
+8/29/2005 - v2.60-alpha1 released
+2.50 was not released due to my inability to release it before starting 2.60
+New
+- dates should display better on non ISO8859-1 systems (eg MacOS)
+- self registration (controled by setup)
+- email validation (controled by setup)
+- better error handling on user creation
+
+Fixes
+- users were able to change gifts restricted access
+- better german translation
+
+8/7/2005 - v2.50-beta4 released
+Bug fixes (thanks to znax)
+
+8/7/2005 - v2.50-beta3 released
+Fixes
+- bug #1253450 : Many backslashes added with some PHP configs (thanks to znax)
+- bug #1253455 : smarty compile errors during setup
+
+8/5/2005 - v2.50-beta2 released
+New
+- german translation (thanks to Andreas Manser)
+- alerts on list updates
+- ability to override the default currency
+- SQLite support (PHP5 only)
+- PHP5 support
+
+6/23/2005 - v2.01 released
+config.inc.php has been corrected, otherwise no changes were made
+
+6/17/2005 - v2.01-beta released (skipping 2.00 due to new features)
+New
+- users can now have only the right to log in and claim gifts
+- credits page
+
+Bugs fixed :
+- bug #1222768 : Links from directly-accessed lists don't work
+
+6/15/2005 - v2.00-beta released
+New
+- new/edited gifts are opened in a new window
+- one can add gifts ideas to other people's lists
+- images are displayed in the gift window
+- confirmation before deleting a gift
+- print a list
+- options can be changed from the admin pages
+- auto updates of database structure when upgrading
+
+3/10/2004 - v1.50 released
+
+Bugs fixed :
+- bug #1039406 : setup does not work properly when the config file was created manually
+
+3/10/2004 - v1.50-beta released
+New
+- prices & image URLs (Thanks to Norman Lyon)
+- priorities
+
+4/8/2004 - v1.12 released
+New
+- nothing (bug fixes only)
+
+Bugs Fixed
+- some debugging code was left, and lots of PHP errors were displayed
+
+4/8/2004 - v1.11 released
+New
+- cache directory has been removed. The templates are pre-compiled.
+- if config is not writeable, allow user to create the file himself
+
+3/11/2004 - v1.02 released
+New
+- nothing (bug fixes only)
+
+Bugs Fixed
+- bug #914496  (Error message in setup when cache/skins isn't writeable)
+
+2/20/2004 - v1.01 released
+New
+- nothing (bug fixes only)
+
+Bugs Fixed
+- bug #901223 (Lots of PHP Notice warnings)
+- bug #901225 (Wrong link in email lists)
+- bug #901230 (Edit restricted access => Change password problem)
+
+2/19/2004 - v1.00 released
+New
+- Birthdays
+- admin : user deletion, password changes
+
+Bugs fixed
+- bug #899924 (email not saved for a new user)
+
+2/17/2004 - v0.96 released
+New
+- user can now belong to groups - one can only see the lists from people of the same group(s)
+- the user name must now be unique
+
+12/14/2003 - v0.95 released
+New
+- the ability to hide the claimer's name (see config/config.inc.php.sample)
+
+Bugs Fixed
+- bug #859877 (Nobody can see restricted access gifts) 
+
+12/8/2003 - v0.94 released
+New
+- nothing (bug fix only)
+
+Bugs Fixed
+- bug #856404 (Error messages in setup.php/index.php (access denied to log))
+
+12/4/2003 - v0.93 released
+New
+- web based setup
+- additional error handling
+- some work on the setup doc
+
+Bugs Fixed
+- bug #846102 (Send my list to a friend send HTML code)
+- bug #846101 (No login link after logout on other people's lists)
+- bug #846098 (logout does not work after "remember me")
+
+11/14/2003 - v0.92 released
+New
+- email field
+- send my list to a friend
+- new skin
+
+Bugs Fixed
+- bug #838156 (display bug in setup.php)
+
+11/6/2003 - v0.91 released
+
+- logout
+- add birthDate/email in database for future use
+- added the ability to change one's password
+- changed the way errors are displayed
+
+11/2/2003 - v0.9 released
+
+- initial release
+
+
+TODO
+- a web installer
+- some nice skins
+- adding gifts to other people lists (without their knowledge)
+- sending a list by email
+- group of users
+- birthdays with email reminders

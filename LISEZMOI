@@ -1,0 +1,76 @@
+INTRODUCTION
+	myGifts vous permet, à vous, votre famille et vos amis, de gérer en ligne vos listes de cadeaux.
+	Chacun peut:
+		- ajouter des cadeaux à sa liste,
+		- proposer des idées de cadeaux sur les listes des autres,
+		- décider de qui peut voir tel ou tel cadeau,
+		- visualiser les listes des autres personnes,
+		- réserver des cadeaux sur d'autres listes.
+	Les utilisateurs peuvent appartenir à des groupes, et ne voient que les listes des personnes
+	des mêmes groupes.
+
+HOME-PAGE
+	http://mygifts.sourceforge.net
+	
+PREREQUIS
+	PHP >= 4.2.3
+	mySQL 3 ou 4.x (facultatif si PHP5)
+
+INSTALLATION (METHODE SIMPLE)
+	- décompressez myGifts.x.x.tar.gz à la racine de votre serveur web
+		(en ligne de commande) tar xvfpz myGifts.x.x.tar.gz
+	- créez une base mySQL (sauf si vous en avez deja une), ou utilisiez une base sqlite sinon (PHP5 uniquement) 
+	- lancez http://votresiteweb/myGifts/setup.php dans votre navigateur Web
+	- choisissez une langue
+	- configurez votre base de données
+	- créez un utilisateur "administrateur"
+
+Note : si vous transférez les fichiers de myGifts sur votre serveur par FTP,
+vous devez vérifier que le répertoire myGifts/config est accessible
+en écriture (permissions "groupe" et "autre" (other) en écriture (write)).
+Si ce n'est pas le cas, l'installeur vous proposera de créer le fichier vous-même.
+
+INSTALLATION COMPLEMENTAIRE (UTILISATEURS AVANCES)
+	Modifiez les droits du fichier config/config.inc.php pour éviter
+	toute modification du fichier de configuration par un utilisateur malveillant
+		cd myGifts/config
+		mv config.inc.php config.save.php
+		cp config.save.php config.inc.php
+
+MISE A JOUR
+	Si vous mettez à jour une version 0.9, executez le script SQL setup/upgrade-0.9.sql
+	Si vous mettez à jour une version 1.22, executez le script SQL setup/upgrade-1.22.sql
+	Pour les versions ultérieures, la mise à jour de la base de données se fait automatiquement.
+	Vous devez supprimer la partie $setup = array( ... ); du fichier config/config.inc.php, 
+	vu que la configuration est maintenant gérée via l'interface web.
+
+SECURITE
+	Par défaut, les répertoires de cache et de config sont en permissions "777". Si vous trouvez que c'est
+	signe d'une mauvaise sécurite, vous pouvez changer ces droits :
+
+		chown -R `whoami` config
+		chmod 755 config
+		chmod 644 config/*
+		
+	myGifts est compatible avec safe_mode=On, register_globals=Off configure dans votre php.ini
+	(si vous ne savez pas ce que c'est, ce n'est pas grave : myGifts tournera dans votre configuration).
+
+REMERCIEMENTS
+	Un grand merci aux developpeurs de Smarty. Sacré boulot !
+	http://smarty.php.net
+
+SUPPORTEZ LE DEVELOPPEMENT DE MYGIFTS
+	Si vous trouvez myGifts utile et voulez remercier l'auteur,
+	voici sa liste de cadeaux :
+	http://www.amazon.fr/exec/obidos/registry/PVEJE4LSSC9R
+
+	Si vous désirez que de nouvelles fonctionalitées soient ajoutées à
+	myGifts, envoyez moi un email à jfbubus@users.sourceforge.net.
+
+	N'oubliez pas de visiter http://www.jeuxdecartes.net et http://www.sangetsueur.net,
+	les deux autres sites de l'auteur.
+
+COPYRIGHT
+    Copyright (c) 2003, 2004, 2005 Jean-Francois Bustarret. Tous droits reserves.
+    Ce logiciel est couvert par la license GPL (GNU General Public License).
+    Merci de lire http://www.gnu.org/licenses/licenses.html#GPL.

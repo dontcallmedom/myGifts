@@ -1,0 +1,14 @@
+<?php
+
+// Language and skin - Langue et skin
+define("LANG", "fr"); // french - francais
+//define("LANG", "en"); //english - anglais
+
+define("SKIN", "default");
+
+// Database - Base de donnees
+define("DBSERVER", "server");
+define("DBUSER", "user");
+define("DBPASSWORD", "password");
+define("DBDATABASE", "db");
+?>
