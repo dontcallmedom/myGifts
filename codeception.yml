@@ -1,0 +1,30 @@
+actor: Tester
+paths:
+    tests: tests
+    log: tests/_output
+    data: tests/_data
+    helpers: tests/_support
+settings:
+    bootstrap: _bootstrap.php
+    colors: true
+    memory_limit: 1024M
+    log: true
+extensions:
+    enabled:
+        - Codeception\Extension\PhpBuiltinServer
+    config:
+        Codeception\Extension\PhpBuiltinServer:
+            hostname: localhost
+            port: 8000
+            documentRoot: ../index.php
+            startDelay: 1
+            phpIni: tests/php.ini
+modules:
+    config:
+        Db:
+            dsn: 'mysql:host=localhost;dbname=mygifts_dev'
+            user: 'mygifts_dev'
+            password: 'mygifts_dev'
+            dump: setup/myGifts.sql
+        PhpBrowser:
+            url: 'http://localhost:8000/'
