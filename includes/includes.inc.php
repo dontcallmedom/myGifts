@@ -1,6 +1,9 @@
 <?php
-
-@include_once("config/config.inc.php");
+if ($_ENV["MYGIFTS_CONFIGURATION"] == "test") {
+  @include_once("tests/config.inc.php");
+} else {
+  @include_once("config/config.inc.php");
+}
 
 if (defined("DEBUG")) {
 	ob_start();
