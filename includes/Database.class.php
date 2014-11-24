@@ -86,8 +86,8 @@ class Database {
  	        	array_push($resultData, $row);
 			}
 		    mysql_free_result($result); 
-        } else
-        	return "ERROR_DATABASE";
+                } else
+                  $resultData = "ERROR_DATABASE";
  
  		return $resultData;
 	}
@@ -100,7 +100,7 @@ class Database {
 			$resultData = mysql_fetch_assoc($result);
 		    mysql_free_result($result); 
         } else
-        	return "ERROR_DATABASE";
+        	$resultData = "ERROR_DATABASE";
  
  		return $resultData;
 	}
