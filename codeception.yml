@@ -10,8 +10,6 @@ settings:
     memory_limit: 1024M
     log: true
 extensions:
-    enabled:
-        - Codeception\Extension\PhpBuiltinServer
     config:
         Codeception\Extension\PhpBuiltinServer:
             hostname: localhost
@@ -25,6 +23,5 @@ modules:
             dsn: 'mysql:host=localhost;dbname=mygifts_dev'
             user: 'mygifts_dev'
             password: 'mygifts_dev'
-            dump: setup/myGifts.sql
         PhpBrowser:
             url: 'http://localhost:8000/'
