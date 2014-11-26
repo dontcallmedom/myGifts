@@ -10,12 +10,15 @@ settings:
     memory_limit: 1024M
     log: true
 extensions:
+    enabled:
+        - Codeception\Extension\PhpBuiltinServer
     config:
         Codeception\Extension\PhpBuiltinServer:
             hostname: localhost
             port: 8000
-            documentRoot: ../index.php
+            documentRoot: ./
             startDelay: 1
+            router: tests/router.php
             phpIni: tests/php.ini
 modules:
     config:

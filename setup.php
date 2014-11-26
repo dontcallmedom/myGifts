@@ -24,7 +24,11 @@ if (!defined("LANG") || LANG == "default") {
 			$database = new Database(DBSERVER, DBUSER, DBPASSWORD, DBDATABASE);
 			if ($database->connect()) {
 				$config = "<?php\ndefine(\"LANG\", \"".LANG."\");\ndefine(\"SKIN\", \"default\");\ndefine(\"DBTYPE\", \"".DBTYPE."\");\n\ndefine(\"DBSERVER\", \"".DBSERVER."\");\ndefine(\"DBUSER\", \"".DBUSER."\");\ndefine(\"DBPASSWORD\", \"".DBPASSWORD."\");\ndefine(\"DBDATABASE\", \"".DBDATABASE."\");\n?>";
-				$fp = @ fopen("config/config.inc.php", "w");
+                                if ($_ENV["MYGIFTS_CONFIGURATION"] == "test") {
+                                  $fp = @ fopen("tests/config.inc.php", "w");
+                                } else {
+                                  $fp = @ fopen("config/config.inc.php", "w");
+                                }
 				if ($fp) {
 					fwrite($fp, "$config");
 					fclose($fp);
