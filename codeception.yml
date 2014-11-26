@@ -18,7 +18,7 @@ extensions:
             port: 8000
             documentRoot: ./
             startDelay: 1
-            router: tests/router.php
+            router: router.php
             phpIni: tests/php.ini
 modules:
     config:
