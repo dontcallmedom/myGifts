@@ -1,6 +1,6 @@
 <?php
 if ($_ENV["MYGIFTS_CONFIGURATION"] == "test") {
-  @include_once("tests/config.inc.php");
+  @include_once("tests/_output/config.inc.php");
 } else {
   @include_once("config/config.inc.php");
 }
