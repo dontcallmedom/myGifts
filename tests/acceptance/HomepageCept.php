@@ -1,11 +1,10 @@
 <?php
-$I = new AcceptanceTester($scenario);
+$I = new AcceptanceTester\AdminSteps($scenario);
 $I->wantTo('ensure that frontpage works');
 $I->amOnPage('/');
-$I->see('Login');
-$I->fillField('name', 'tester');
-$I->fillField('password', 'tester');
-$I->click('login');
+$I->login();
 $I->amOnPage('/index.php');
 $I->see('My List');
+$I->see('administration');
+$I->logout();
 ?>
