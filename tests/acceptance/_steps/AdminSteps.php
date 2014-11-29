@@ -23,7 +23,7 @@ class AdminSteps extends \AcceptanceTester
     {
         $I = $this;
         $I->amOnPage('/index.php?handler=adminEditUser');
-        $I->fillField('name', 'user');
+        $I->fillField('name', 'foo');
         $I->fillField('email', 'user@localhost.net');
         $I->fillField('birthDate[Date_Month]', '02');
         $I->fillField('birthDate[Date_Day]', '29');

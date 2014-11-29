@@ -7,7 +7,7 @@ class NormalUserSteps extends \AcceptanceTester
     {
         $I = $this;
         $I->see("Login");
-        $I->fillField('name', 'user');
+        $I->fillField('name', 'foo');
         $I->fillField('password', 'user');
         $I->click('login');
 

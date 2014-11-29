@@ -8,7 +8,7 @@ $I->see("tester");
 $I->click('add');
 $I->seeInCurrentUrl('adminEditUser');
 $I->see("User administration");
-$I->fillField('name', 'user');
+$I->fillField('name', 'foo');
 $I->fillField('email', 'user@localhost.net');
 $I->fillField('birthDate[Date_Month]', '02');
 $I->fillField('birthDate[Date_Day]', '29');
@@ -20,4 +20,16 @@ $they = new AcceptanceTester\NormalUserSteps($scenario);
 $they->login();
 $they->see("My List");
 $they->logout();
+
+$I->login();
+$I->addNormalUser();
+$I->see('error');
+$I->see('already exists');
+
+$I->amOnPage('/?handler=adminUsers');
+$I->click(['xpath' => '//a[.="delete"][1]']);
+$I->see('delete user foo');
+$I->click('Yes');
+$I->dontSee('foo');
+$I->logout();
 ?>
