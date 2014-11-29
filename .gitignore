@@ -5,3 +5,4 @@ vendor
 tests/_output/*
 skins/default/compiled/
 tests/config.inc.php
+tests/*/*Tester.php
