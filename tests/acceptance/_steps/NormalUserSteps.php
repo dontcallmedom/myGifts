@@ -3,12 +3,12 @@ namespace AcceptanceTester;
 
 class NormalUserSteps extends \AcceptanceTester
 {
-    public function login()
+    public function login($password = 'user')
     {
         $I = $this;
         $I->see("Login");
         $I->fillField('name', 'foo');
-        $I->fillField('password', 'user');
+        $I->fillField('password', $password);
         $I->click('login');
 
     }

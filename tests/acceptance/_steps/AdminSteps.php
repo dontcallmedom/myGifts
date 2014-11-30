@@ -30,4 +30,13 @@ class AdminSteps extends \AcceptanceTester
         $I->fillField('password', 'user');
         $I->click('add');
     }
+
+    public function deleteNormalUser()
+    {
+        $I = $this;
+        $I->amOnPage('/index.php?handler=adminUsers');
+        $I->click(['xpath' => '//a[.="delete"][1]']);
+        $I->see('delete user foo');
+        $I->click('Yes');
+    }
 }
