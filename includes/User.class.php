@@ -141,7 +141,7 @@ class User {
 
 		if (isset ($groups) && $user->accessLevel == 3) {
 			$gl = new GroupList($this->id);
-			$gl->saveGroupList($groups);
+			$gl->saveGroupList(" ".join($groups));
 		} else if ($newUser) {
       $gl = new GroupList($this->id, true);
       $gl->saveGroupList();

@@ -132,8 +132,13 @@ class Controler {
   function formatParam($paramName, $paramValue) {
     global $G_CTRL_PARAM_FMT;
 
-    if (!array_key_exists($paramName, $G_CTRL_PARAM_FMT))
-      return $paramValue;
+    if (!array_key_exists($paramName, $G_CTRL_PARAM_FMT)) {
+      if (!is_array($paramValue)) {
+        return $paramValue;
+      } else {
+        return " ".join($paramValue);
+      }
+    }
     else
       return call_user_func_array($G_CTRL_PARAM_FMT[$paramName], array($paramValue));
   }
