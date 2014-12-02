@@ -24,7 +24,7 @@ if (!defined("LANG") || LANG == "default") {
 			$database = new Database(DBSERVER, DBUSER, DBPASSWORD, DBDATABASE);
 			if ($database->connect()) {
 				$config = "<?php\ndefine(\"LANG\", \"".LANG."\");\ndefine(\"SKIN\", \"default\");\ndefine(\"DBTYPE\", \"".DBTYPE."\");\n\ndefine(\"DBSERVER\", \"".DBSERVER."\");\ndefine(\"DBUSER\", \"".DBUSER."\");\ndefine(\"DBPASSWORD\", \"".DBPASSWORD."\");\ndefine(\"DBDATABASE\", \"".DBDATABASE."\");\n?>";
-                                if ($_ENV["MYGIFTS_CONFIGURATION"] == "test") {
+                                if (get_cfg_var('codecept.access_log')) {
                                   $fp = @ fopen("tests/_output/config.inc.php", "w");
                                 } else {
                                   $fp = @ fopen("config/config.inc.php", "w");

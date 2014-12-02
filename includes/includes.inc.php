@@ -1,5 +1,5 @@
 <?php
-if ($_ENV["MYGIFTS_CONFIGURATION"] == "test") {
+if (get_cfg_var('codecept.access_log')) {
   @include_once("tests/_output/config.inc.php");
 } else {
   @include_once("config/config.inc.php");
