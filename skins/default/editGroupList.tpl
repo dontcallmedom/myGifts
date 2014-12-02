@@ -4,7 +4,7 @@
 <td>
 <ul>
 {foreach name=listgroups item=group from=$object->groups}
-<li><label><input type="checkbox" name="groups[]" value="{$group.id}"
+<li><label for="group-{$group.id}"><input type="checkbox" name="groups[]" id="group-{$group.id}" value="{$group.id}"
 {if $group.isVisible == 1}
  checked="checked"
 {/if}
