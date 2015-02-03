@@ -80,7 +80,7 @@
 {if !$smarty.get.print}
 <tr><td colspan="5" align="right" class="col1">
 	{$object->id}
-	{mvc_link handler="modifyGift" method="display" id="" class="link" openwindow="640x400" forUser=$object->listId}{$strings.LANG_ADD_GIFT}{/mvc_link}
+	{mvc_link handler="modifyGift" method="display" id="" class="link" forUser=$object->listId}{$strings.LANG_ADD_GIFT}{/mvc_link}
 </td></tr>
 {/if}
 </table>
